@@ -1,26 +1,17 @@
 import logo from './logo.svg';
 import './App.css';
+import {BrowserRouter, Route} from "react-router-dom";
+import {Switch} from "@mui/material";
+import Home from "./Home";
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-          Jack was here
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Switch>
+        <Route path="/">
+          <Home/>
+        </Route>
+      </Switch>
+    </BrowserRouter>
   );
 }
-
-export default App;
