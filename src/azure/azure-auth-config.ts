@@ -4,7 +4,7 @@ export const msalConfig = {
     auth: {
       clientId: config.config.REACT_APP_AZURE_ACTIVE_DIRECTORY_APP_CLIENT_ID,
       authority: "https://login.microsoftonline.com/consumers",
-      redirectUri: "https://3001-black-alpaca-x6f5wu70.ws-us18.gitpod.io/",
+      redirectUri: config.config.redirectUri,
     },
     cache: {
       cacheLocation: "sessionStorage", // This configures where your cache will be stored
