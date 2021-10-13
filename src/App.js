@@ -12,6 +12,11 @@ export default function App() {
           <Home/>
         </Route>
       </Switch>
+      <Switch>
+        <Route path="/sign-in">
+          <App />
+        </Route>
+      </Switch>
     </BrowserRouter>
   );
 }
