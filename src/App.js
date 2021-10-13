@@ -6,9 +6,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path="/">
-          <Home/>
-        </Route>
+        <Route path="/" component={Home}/>
       </Switch>
     </BrowserRouter>
   );
