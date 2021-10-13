@@ -1,10 +1,13 @@
-import config from '../config'
+export const config = {
+  REACT_APP_AZURE_ACTIVE_DIRECTORY_APP_CLIENT_ID: "7158c3bc-c32d-463f-87b2-bf5a0cbf0cfe",
+  redirectUri: "http://localhost:3000"
+}
 
 export const msalConfig = {
   auth: {
-    clientId: config.config.REACT_APP_AZURE_ACTIVE_DIRECTORY_APP_CLIENT_ID,
+    clientId: config.REACT_APP_AZURE_ACTIVE_DIRECTORY_APP_CLIENT_ID,
     authority: "https://login.microsoftonline.com/consumers",
-    redirectUri: config.config.redirectUri,
+    redirectUri: config.redirectUri,
   },
   cache: {
     cacheLocation: "sessionStorage", // This configures where your cache will be stored
