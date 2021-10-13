@@ -1,4 +1,4 @@
-import {AccountInfo, AuthenticationResult, IPublicClientApplication} from "@azure/msal-browser";
+import {AuthenticationResult, IPublicClientApplication} from "@azure/msal-browser";
 import {loginRequest} from "./azure-auth-config";
 import {useMsal} from "@azure/msal-react";
 import Button from "@mui/material/Button";
@@ -8,14 +8,10 @@ import React, {useState} from "react";
 
 const MicroIcon = styled('img')({
   width: '20px'
-})
-
-interface Props {
-  setAccount: React.Dispatch<React.SetStateAction<AccountInfo | null>>;
-}
+});
 
 // Log In, Log Out button
-function SignInButton({setAccount}: Props) {
+export default function SignInButton() {
   // Azure client context
   const [loggingIn, setLoggingIn] = useState(false);
   const {instance} = useMsal();
@@ -26,10 +22,9 @@ function SignInButton({setAccount}: Props) {
     try {
       const result: AuthenticationResult = await instance.loginPopup(loginRequest);
       if (!result.account) {
-        console.log('Error: failed to sign in')
+        console.log('Error: failed to sign in');
         setLoggingIn(false);
       }
-      setAccount(result.account);
     } catch (error) {
       console.log(error)
       setLoggingIn(false);
@@ -43,5 +38,3 @@ function SignInButton({setAccount}: Props) {
     </>
   );
 };
-
-export default SignInButton;

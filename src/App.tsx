@@ -8,7 +8,6 @@ import {msalConfig} from "./azure/azure-auth-config";
 export default function App() {
   const msalInstance = new PublicClientApplication(msalConfig);
 
-
   return (
     <MsalProvider instance={msalInstance}>
       <BrowserRouter>

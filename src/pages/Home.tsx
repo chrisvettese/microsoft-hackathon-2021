@@ -1,12 +1,13 @@
 import SignInButton from "../azure/SignInButton";
-import React, {useState} from "react";
+import React from "react";
 import {Box, Typography} from "@mui/material";
-import {useIsAuthenticated} from "@azure/msal-react";
-import {AccountInfo} from "@azure/msal-browser";
+import {useIsAuthenticated, useMsal} from "@azure/msal-react";
+import SignOutButton from "../azure/SignOutButton";
 
 export default function Home() {
   const isAuth: boolean = useIsAuthenticated();
-  const [account, setAccount] = useState<AccountInfo | null>(null);
+  const {accounts} = useMsal();
+  const account = accounts[0];
 
   return (
     <Box sx={{display: 'flex', alignItems: 'center', flexDirection: 'column', marginTop: '4rem'}}>
@@ -14,7 +15,7 @@ export default function Home() {
         (!isAuth || !account) && (
           <>
             <Typography variant='h4' sx={{marginBottom: '1rem'}}>Unnamed Environmental Application</Typography>
-            <SignInButton setAccount={setAccount}/>
+            <SignInButton/>
           </>
         )
       }
@@ -22,6 +23,7 @@ export default function Home() {
         isAuth && account && (
           <>
             <Typography>Welcome, {account.name}</Typography>
+            <SignOutButton/>
           </>
         )
       }
