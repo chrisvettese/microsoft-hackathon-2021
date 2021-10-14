@@ -22,7 +22,7 @@ export default function SignOutButton() {
 
   return (
     <>
-      <Button variant='contained' onClick={() => signOut(instance)} disabled={loggingOut}>
+      <Button variant='contained' onClick={() => signOut(instance)} disabled={loggingOut} sx={{mx: '1rem'}}>
         Sign Out
       </Button>
     </>
