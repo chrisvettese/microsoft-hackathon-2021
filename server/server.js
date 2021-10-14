@@ -2,6 +2,9 @@
 
 const express = require('express');
 
+const db = require("./models/index");
+db.sequelize.sync();
+
 //Create an app
 const app = express();
 app.get('/', (req, res) => {
