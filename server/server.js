@@ -4,7 +4,7 @@ import helloWorld from './rest/basic/HelloWorld.js';
 import morgan from 'morgan'
 import userRouter from './rest/Users/Users.js';
 
-db.sequelize.sync();
+await db.sequelize.sync();
 try {
   await db.sequelize.authenticate();
   console.log('Connection has been established successfully.');
