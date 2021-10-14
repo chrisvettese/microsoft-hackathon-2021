@@ -1,5 +1,5 @@
-import {dbConfig} from "../config/database.js";
-import {Sequelize} from "sequelize";
+import { dbConfig } from "../config/database.js";
+import { Sequelize } from "sequelize";
 
 const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
   host: dbConfig.HOST,
@@ -14,6 +14,6 @@ const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
   }
 });
 
-export const db = {
-  sequelize: sequelize
+export default {
+  sequelize
 };
