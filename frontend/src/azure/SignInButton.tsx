@@ -1,29 +1,40 @@
-import { IPublicClientApplication } from "@azure/msal-browser";
-import { loginRequest } from "./azure-auth-config";
-import { UnauthenticatedTemplate, useIsAuthenticated, useMsal } from "@azure/msal-react";
+import {AuthenticationResult, IPublicClientApplication} from "@azure/msal-browser";
+import {loginRequest} from "./azure-auth-config";
+import {useMsal} from "@azure/msal-react";
 import Button from "@mui/material/Button";
+import Microsoft from '../assets/microsoft.png';
+import {styled} from "@mui/material";
+import React, {useState} from "react";
 
-
-function handleLogin(instance: IPublicClientApplication) {
-    instance.loginPopup(loginRequest).catch(e => {
-        console.error(e);
-    });
-}
-
-
+const MicroIcon = styled('img')({
+  width: '20px'
+});
 
 // Log In, Log Out button
-const SignInButton = (): JSX.Element => {
-    // Azure client context
-    const { instance } = useMsal()
-    const isAuth = useIsAuthenticated();
+export default function SignInButton() {
+  // Azure client context
+  const [loggingIn, setLoggingIn] = useState(false);
+  const {instance} = useMsal();
 
+  async function handleLogin(instance: IPublicClientApplication) {
+    setLoggingIn(true);
 
-    return (
-        <div id="authentication">
-            <Button className="ml-auto" onClick={() => handleLogin(instance)} disabled={isAuth}>Sign in using Popup</Button>
-        </div>
-    );
+    try {
+      const result: AuthenticationResult = await instance.loginPopup(loginRequest);
+      if (!result.account) {
+        console.log('Error: failed to sign in');
+        setLoggingIn(false);
+      }
+    } catch (error) {
+      console.log(error)
+      setLoggingIn(false);
+    }
+  }
+
+  return (
+    <>
+      <Button variant='contained' startIcon={<MicroIcon src={Microsoft} alt='Microsoft Icon'/>}
+              onClick={() => handleLogin(instance)} disabled={loggingIn}>Sign in with Microsoft</Button>
+    </>
+  );
 };
-
-export default SignInButton;
