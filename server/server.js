@@ -1,14 +1,12 @@
-// server.js
+import express from 'express';
+import {db} from "./models/model.js";
 
-const express = require('express');
-
-const db = require("./models/index");
 db.sequelize.sync();
 
 //Create an app
 const app = express();
 app.get('/', (req, res) => {
-    res.send('Hello world\n');
+  res.send('Hello world\n');
 });
 
 //Listen port
