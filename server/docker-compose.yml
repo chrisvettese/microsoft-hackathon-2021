@@ -9,6 +9,18 @@ services:
       PGDATA: /data/postgres
     volumes:
       - postgres:/data/postgres
+    ports:
+      - "5432:5432"
+
+  express:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - postgres
+    command: node server.js
+    ports:
+      - "8080:8080"
 
 volumes:
   postgres:
