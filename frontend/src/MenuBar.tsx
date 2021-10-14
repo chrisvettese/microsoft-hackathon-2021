@@ -1,8 +1,9 @@
-import {AppBar, Box, Button, IconButton, Menu, MenuItem, styled, Toolbar, Typography} from "@mui/material";
+import {AppBar, Box, Button, IconButton, Menu, styled, Toolbar, Typography} from "@mui/material";
 import {AccountCircle} from "@mui/icons-material";
 import {MouseEvent, useState} from "react";
-import SignOutButton from "../azure/SignOutButton";
+import SignOutButton from "./azure/SignOutButton";
 import {useMsal} from "@azure/msal-react";
+import {useHistory} from "react-router-dom";
 
 const MenuButton = styled(Button)({
   color: 'white',
@@ -11,6 +12,8 @@ const MenuButton = styled(Button)({
 });
 
 export default function MenuBar() {
+  const history = useHistory();
+
   const {accounts} = useMsal();
   const account = accounts[0];
 
@@ -27,10 +30,10 @@ export default function MenuBar() {
   return (
     <AppBar position="static">
       <Toolbar>
-        <MenuButton>Home</MenuButton>
-        <MenuButton>About</MenuButton>
-        <MenuButton>Eco Setup</MenuButton>
-        <MenuButton>Leaderboard</MenuButton>
+        <MenuButton onClick={() => history.push('')}>Home</MenuButton>
+        <MenuButton onClick={() => history.push('/about')}>About</MenuButton>
+        <MenuButton onClick={() => history.push('/setup')}>My Eco Setup</MenuButton>
+        <MenuButton onClick={() => history.push('/leaderboard')}>Leaderboard</MenuButton>
         <IconButton
           size="large"
           onClick={handleMenu}

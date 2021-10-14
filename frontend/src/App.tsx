@@ -1,21 +1,30 @@
 import {BrowserRouter, Route, Switch} from "react-router-dom";
 import Home from "./Home";
-import {PublicClientApplication} from "@azure/msal-browser";
-import {MsalProvider} from "@azure/msal-react";
-import {msalConfig} from "./azure/azure-auth-config";
+import {useIsAuthenticated, useMsal} from "@azure/msal-react";
+import About from "./About";
+import Setup from "./Setup";
+import Leaderboard from "./Leaderboard";
+import MenuBar from "./MenuBar";
 
 
 export default function App() {
-  const msalInstance = new PublicClientApplication(msalConfig);
+  const isAuth: boolean = useIsAuthenticated();
+  const {accounts} = useMsal();
+  const account = accounts[0];
+
+  const signedIn = isAuth && account;
 
   return (
-    <MsalProvider instance={msalInstance}>
       <BrowserRouter>
+        {
+          signedIn && <MenuBar/>
+        }
         <Switch>
-          <Route path="/welcome" component={Home}/>
+          <Route path="/about" component={About}/>
+          <Route path="/setup" component={Setup}/>
+          <Route path="/leaderboard" component={Leaderboard}/>
           <Route path="/" component={Home}/>
         </Switch>
       </BrowserRouter>
-    </MsalProvider>
   );
 }

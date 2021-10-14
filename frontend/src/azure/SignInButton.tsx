@@ -5,6 +5,7 @@ import Button from "@mui/material/Button";
 import Microsoft from '../assets/microsoft.png';
 import {styled} from "@mui/material";
 import React, {useState} from "react";
+import {useHistory} from "react-router-dom";
 
 const MicroIcon = styled('img')({
   width: '20px'
@@ -12,6 +13,7 @@ const MicroIcon = styled('img')({
 
 // Log In, Log Out button
 export default function SignInButton() {
+  const history = useHistory();
   // Azure client context
   const [loggingIn, setLoggingIn] = useState(false);
   const {instance} = useMsal();
@@ -25,6 +27,8 @@ export default function SignInButton() {
         console.log('Error: failed to sign in');
         setLoggingIn(false);
       }
+      history.push('');
+
     } catch (error) {
       console.log(error)
       setLoggingIn(false);
