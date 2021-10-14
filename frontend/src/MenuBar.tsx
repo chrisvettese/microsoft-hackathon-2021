@@ -29,7 +29,7 @@ export default function MenuBar() {
 
   return (
     <AppBar position="static">
-      <Toolbar>
+      <Toolbar sx={{background: 'green'}}>
         <MenuButton onClick={() => history.push('')}>Home</MenuButton>
         <MenuButton onClick={() => history.push('/about')}>About</MenuButton>
         <MenuButton onClick={() => history.push('/setup')}>My Eco Setup</MenuButton>
