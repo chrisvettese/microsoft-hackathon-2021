@@ -12,7 +12,7 @@ User.init({
         allowNull: false,
     },
     EmissionsPerWeek: {
-        type: DataTypes.INTEGER
+        type: DataTypes.INTEGER,
     },
     EmailAddress: {
         type: DataTypes.STRING,
@@ -27,15 +27,10 @@ User.init({
         allowNull: false,
         default: false,
     },
-    Type: {
-        type: DataTypes.JSON,
-    }
 }, {
     // Other model options go here
     sequelize: db.sequelize, // We need to pass the connection instance
     modelName: 'User' // We need to choose the model name
 });
-
-User.sync();
 
 export default User;
