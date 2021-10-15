@@ -1,7 +1,6 @@
 import {Box, Typography} from "@mui/material";
 import SignInButton from "./azure/SignInButton";
 import {useIsAuthenticated, useMsal} from "@azure/msal-react";
-import MenuBar from "./MenuBar";
 
 export default function About() {
   const isAuth: boolean = useIsAuthenticated();
