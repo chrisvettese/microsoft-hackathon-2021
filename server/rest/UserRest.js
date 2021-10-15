@@ -1,6 +1,6 @@
 import { Router } from "express";
-import User from "../../models/UserModel.js";
-import assert from "../../utils/dev.js";
+import User from "../models/UserModel.js";
+import assert from "../utils/dev.js";
 const userRouter = Router();
 
 function getAllBuilder(model) {

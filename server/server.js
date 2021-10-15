@@ -1,8 +1,8 @@
 import express from 'express';
 import db from "./models/model.js";
-import helloWorld from './rest/basic/HelloWorld.js';
+import helloWorld from './rest/HelloWorld.js';
 import morgan from 'morgan'
-import userRouter from './rest/Users/UserRest.js';
+import userRouter from './rest/UserRest.js';
 
 
 await db.sequelize.sync({force: true});
