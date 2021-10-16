@@ -1,6 +1,6 @@
 export const config = {
 
-  REACT_APP_AZURE_ACTIVE_DIRECTORY_APP_CLIENT_ID: "a8b8ae40-aebe-477d-aba2-448f99a01731",
+  REACT_APP_AZURE_ACTIVE_DIRECTORY_APP_CLIENT_ID: "b7d254de-a602-45fd-8dbd-68ba5293d396",
   redirectUri: "http://localhost:3000"
 }
 

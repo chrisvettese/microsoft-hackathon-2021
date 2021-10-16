@@ -5,10 +5,8 @@ import morgan from 'morgan'
 import cors from 'cors';
 import userRouter from './rest/UserRest.js';
 
-
 //set force to false if we want to persist the database
 await db.sequelize.sync({ force: true });
-
 
 try {
   await db.sequelize.authenticate();
