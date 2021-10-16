@@ -18,7 +18,6 @@ User.init({
   },
   username: {
     type: DataTypes.STRING,
-    allowNull: false,
   },
   weekly_emissions: {
     type: DataTypes.INTEGER

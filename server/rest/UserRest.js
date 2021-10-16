@@ -42,9 +42,7 @@ userRouter.post('/', async (req, res) => {
     try {
         console.log(body);
         assert(body.email_address, 'user has no email_address');
-        assert(body.oid, 'user has no oid');
-        assert(body.username, 'user has no username');
-        
+        assert(body.oid, 'user has no oid');        
     } catch (error) {
         res.status(400).send(error.message)
         return;
@@ -53,7 +51,7 @@ userRouter.post('/', async (req, res) => {
     try {
         const newUser = body;
         const result = await User.create(body);
-        res.status(200).send(result);
+        res.status(201).send(result);
         return;
     } catch (error) {
         res.status(500).send(error.message)
