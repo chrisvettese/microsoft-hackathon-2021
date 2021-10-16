@@ -25,7 +25,7 @@ const app = express();
 app.use(cors({origin: 'http://localhost:3000'}))
 app.use(morgan('common'));
 app.use(express.json());
-app.use('/', helloWorld);
+app.use('/', helloWorld)
 app.use('/api', apiRoute);
 
 //Listen port
