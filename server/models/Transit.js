@@ -5,11 +5,17 @@ import db from './model.js'
 class TransitMethod extends Model { };
 
 TransitMethod.init({
+    name: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
     gas_emissions: {
-        type: DataTypes.INTEGER // not sure of units
+        type: DataTypes.INTEGER, // not sure of units
+        allowNull: false
     },
     electricity_usage: {
-        type: DataTypes.INTEGER // not sure of units
+        type: DataTypes.INTEGER, // not sure of units
+        allowNull: false
     }
 }, {
     sequelize: db.sequelize, // We need to pass the connection instance
