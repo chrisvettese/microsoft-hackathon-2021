@@ -23,13 +23,13 @@ function getByIdBuilder(model){
                 if (data) {
                     res.status(200).send(data);
                 } else {
-                    res.status(404).send("not found");
+                    res.sendStatus(404);
                 }
             } catch (error) {
                 res.status(500).send(error.message)
             }
         } else {
-            res.status(400).send("no id found")
+            res.sendStatus(400);
         }
     }
 }
