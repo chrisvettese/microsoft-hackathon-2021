@@ -28,7 +28,7 @@ export default function SignInButton() {
         setLoggingIn(false);
         return;
       }
-      history.push('', {accessToken: result.accessToken});
+      history.push('', {accessToken: result.accessToken, signedIn: true});
 
     } catch (error) {
       console.log(error)

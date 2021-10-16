@@ -1,5 +1,6 @@
-export const SERVER_PATH = 'http://localhost:8080';
+export const SERVER_PATH = 'http://localhost:8080/api';
 
 export type LocationState = {
-  accessToken: string
+  accessToken: string,
+  signedIn?: boolean
 }
