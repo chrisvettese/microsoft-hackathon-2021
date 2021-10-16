@@ -27,6 +27,7 @@
 ### patch /api/user
 - submits a new username
 - does not patch other variables
+- sets is_registered to true
 ```
 {
     oid: number
@@ -38,8 +39,9 @@
 ## /api/transit
 
 ### get /api/transit
-- returns a table of transits. of the from
-per Enum is ` day, week, month, year `
+
+- per Enum is ` day, week, month, year `
+- returns a table of transits. of the form
 ```
 {
     oid,
@@ -58,6 +60,7 @@ per Enum is ` day, week, month, year `
 
 - calculates gas emissions of each transit
 - updates the Emissions version
+- updates the users eco score and leaderboard eco score
 
 
 
