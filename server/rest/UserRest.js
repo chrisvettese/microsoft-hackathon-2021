@@ -23,13 +23,13 @@ function getByIdBuilder(model){
                 if (data) {
                     res.status(200).send(data);
                 } else {
-                    res.status(404).send("not found");
+                    res.sendStatus(404);
                 }
             } catch (error) {
                 res.status(500).send(error.message)
             }
         } else {
-            res.status(400).send("no id found")
+            res.sendStatus(400);
         }
     }
 }
@@ -40,12 +40,10 @@ userRouter.get('/', getAllBuilder(User))
 userRouter.post('/', async (req, res) => {
     const body = req.body;
     try {
-        assert(body.userName, 'user has no username');
-        assert(body.EmailAddress, 'user has no emailAddress');
-        assert(body.IsRegistered, 'user has no isRegistered');
-
+        assert(body.email_address, 'user has no emailAddress');
+        assert(body.oid, 'user has no emailAddress');
     } catch (error) {
-        res.status(400).logsend(error.message)
+        res.status(400).send(error.message)
     }
 
     try {
