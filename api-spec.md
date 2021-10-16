@@ -21,6 +21,7 @@
     email_address
     oid
 }
+```
 
 
 ### patch /api/user
