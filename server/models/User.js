@@ -7,35 +7,35 @@ class User extends Model { }
 
 User.init({
     // Model attributes are defined here
-    userName: {
+    oid: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        primaryKey: true
+    },
+    username: {
         type: DataTypes.STRING,
         allowNull: false,
     },
-    EmissionsPerWeek: {
+    weekly_emissions: {
         type: DataTypes.INTEGER
     },
-    EmailAddress: {
+    email_address: {
         type: DataTypes.STRING,
         allowNull: false
     },
-    EcoScore: {
+    eco_score: {
         type: DataTypes.INTEGER,
         default: 0
     },
-    IsRegistered: {
+    is_registered: {
         type: DataTypes.BOOLEAN,
         allowNull: false,
         default: false,
-    },
-    Type: {
-        type: DataTypes.JSON,
     }
 }, {
     // Other model options go here
     sequelize: db.sequelize, // We need to pass the connection instance
     modelName: 'User' // We need to choose the model name
 });
-
-User.sync();
 
 export default User;

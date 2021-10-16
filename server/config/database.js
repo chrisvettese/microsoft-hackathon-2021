@@ -1,5 +1,11 @@
+//env variable set in docker-compose
+let host = process.env['POSTGRES_HOST'];
+if (host === undefined) {
+  host = 'localhost';
+}
+
 export const dbConfig = {
-  HOST: "localhost",
+  HOST: host,
   USER: "postgres",
   PASSWORD: "postgres",
   DB: "postgres",

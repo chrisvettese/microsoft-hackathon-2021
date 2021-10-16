@@ -3,7 +3,8 @@ import {AccountCircle} from "@mui/icons-material";
 import {MouseEvent, useState} from "react";
 import SignOutButton from "./azure/SignOutButton";
 import {useMsal} from "@azure/msal-react";
-import {useHistory} from "react-router-dom";
+import {useHistory, useLocation} from "react-router-dom";
+import {LocationState} from "./Util";
 
 const MenuButton = styled(Button)({
   color: 'white',
@@ -13,11 +14,14 @@ const MenuButton = styled(Button)({
 
 export default function MenuBar() {
   const history = useHistory();
+  const location = useLocation<LocationState>();
 
   const {accounts} = useMsal();
   const account = accounts[0];
 
   const [anchorEl, setAnchorEl] = useState<Element | null>(null);
+
+  const state: LocationState = location.state;
 
   const handleMenu = (event: MouseEvent) => {
     setAnchorEl(event.currentTarget);
@@ -30,10 +34,10 @@ export default function MenuBar() {
   return (
     <AppBar position="static">
       <Toolbar sx={{background: 'green'}}>
-        <MenuButton onClick={() => history.push('')}>Home</MenuButton>
-        <MenuButton onClick={() => history.push('/about')}>About</MenuButton>
-        <MenuButton onClick={() => history.push('/setup')}>My Eco Setup</MenuButton>
-        <MenuButton onClick={() => history.push('/leaderboard')}>Leaderboard</MenuButton>
+        <MenuButton onClick={() => history.push('', {accessToken: state.accessToken})}>Home</MenuButton>
+        <MenuButton onClick={() => history.push('/about', {accessToken: state.accessToken})}>About</MenuButton>
+        <MenuButton onClick={() => history.push('/setup', {accessToken: state.accessToken})}>My Eco Setup</MenuButton>
+        <MenuButton onClick={() => history.push('/leaderboard', {accessToken: state.accessToken})}>Leaderboard</MenuButton>
         <IconButton
           size="large"
           onClick={handleMenu}

@@ -2,10 +2,20 @@ import { Router } from "express";
 import User from "../../models/User.js";
 const userRouter = Router();
 
-userRouter.get('/user/:id', (req, res) => {
+userRouter.get('/:id', async (req, res) => {
+    const token = req.query.accessToken;
+
     const id = req.params.id;
-    const user = User.findByPk(id)
-    res.send(user.toJson());
+    const user = await User.findByPk(id);
+    if (user === null) {
+        res.sendStatus(404);
+    }
+    res.send(user.toJSON());
+});
+
+//Create new user
+userRouter.post('', (req, res) => {
+    const user = new User(5)
 });
 
 export default userRouter;

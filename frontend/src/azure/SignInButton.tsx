@@ -26,8 +26,9 @@ export default function SignInButton() {
       if (!result.account) {
         console.log('Error: failed to sign in');
         setLoggingIn(false);
+        return;
       }
-      history.push('');
+      history.push('', {accessToken: result.accessToken});
 
     } catch (error) {
       console.log(error)

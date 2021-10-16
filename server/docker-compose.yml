@@ -19,6 +19,8 @@ services:
     depends_on:
       - postgres
     command: node server.js
+    environment:
+      POSTGRES_HOST: postgres
     ports:
       - "8080:8080"
 

@@ -1,5 +1,5 @@
 export const config = {
-  REACT_APP_AZURE_ACTIVE_DIRECTORY_APP_CLIENT_ID: "7158c3bc-c32d-463f-87b2-bf5a0cbf0cfe",
+  REACT_APP_AZURE_ACTIVE_DIRECTORY_APP_CLIENT_ID: "a8b8ae40-aebe-477d-aba2-448f99a01731",
   redirectUri: "http://localhost:3000"
 }
 
