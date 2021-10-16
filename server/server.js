@@ -7,7 +7,7 @@ import userRouter from './rest/UserRest.js';
 
 
 //set force to false if we want to persist the database
-await db.sequelize.sync({ force: false });
+await db.sequelize.sync({ force: true });
 
 
 try {
@@ -27,7 +27,6 @@ app.use(morgan('common'));
 app.use(express.json());
 app.use('/', helloWorld);
 app.use('/api', apiRoute);
-
 
 //Listen port
 const PORT = 8080;

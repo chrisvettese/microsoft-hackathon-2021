@@ -7,7 +7,13 @@ export type User = {}
  * Returns false if error
  */
 export async function initializeUser(accessToken: string, oid: string): Promise<boolean | User> {
-  let result = await fetch(`${SERVER_PATH}/user/${oid}?access_token=${accessToken}`);
+  let result = await fetch(`${SERVER_PATH}/user/${oid}`, {
+    headers: {
+      'Accept': 'application/json',
+      'Authentication': accessToken,
+      'Content-Type': 'application/json'
+    }
+  });
   result = await result.json();
   if (result.status === 200) {
     return '';
@@ -24,9 +30,10 @@ async function createUser(accessToken: string) {
   return await fetch(`${SERVER_PATH}/user`, {
     headers: {
       'Accept': 'application/json',
+      'Authentication': accessToken,
       'Content-Type': 'application/json'
     },
     method: "POST",
-    body: JSON.stringify({accessToken: accessToken})
+    body: JSON.stringify({})
   });
 }
