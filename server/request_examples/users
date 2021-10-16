@@ -1,0 +1,5 @@
+curl localhost:8080/user/1
+
+curl -X POST -H "Content-Type: application/json" \
+    -d '{"userName": "linuxize", "EmailAddress": "linuxize@example.com", "EmissionsPerWeek": 2, "IsRegistered": true}' \
+    localhost:8080/user

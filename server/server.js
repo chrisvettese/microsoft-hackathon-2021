@@ -1,11 +1,12 @@
 import express from 'express';
 import db from "./models/model.js";
-import helloWorld from './rest/basic/HelloWorld.js';
+import helloWorld from './rest/HelloWorld.js';
 import morgan from 'morgan'
-import userRouter from './rest/Users/Users.js';
 import cors from 'cors';
+import userRouter from './rest/UserRest.js';
 
-await db.sequelize.sync();
+await db.sequelize.sync({force: true});
+
 try {
   await db.sequelize.authenticate();
   console.log('Connection has been established successfully.');
