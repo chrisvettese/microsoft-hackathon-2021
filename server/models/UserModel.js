@@ -1,6 +1,10 @@
 import pkg from 'sequelize';
 const {DataTypes, Model} = pkg;
 import db from './model.js'
+import Emission from './Emission.js'
+import Transit from './Transit.js'
+import Province from './Province.js'
+import LeaderboardEntry from './LeaderboardEntry.js'
 
 class User extends Model {
 }
@@ -37,5 +41,10 @@ User.init({
   sequelize: db.sequelize, // We need to pass the connection instance
   modelName: 'User' // We need to choose the model name
 });
+
+User.hasMany(Emission);
+User.hasMany(Transit);
+Province.hasMany(User);
+User.belongsTo(LeaderboardEntry);
 
 export default User;
