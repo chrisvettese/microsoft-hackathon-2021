@@ -20,8 +20,9 @@ export default function Home() {
       history.push('/about');
     } else if (signedIn){
       // @ts-ignore
-      const result = await initializeUser(location.state.accessToken, account.idTokenClaims.oid);
-      console.log(result);
+      initializeUser(location.state.accessToken, account.idTokenClaims.oid).then(result => {
+        console.log(result);
+      });
     }
   }, [history, signedIn, isAuth, inProgress, account, location.state]);
 
