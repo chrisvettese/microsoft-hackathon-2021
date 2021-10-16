@@ -33,7 +33,6 @@ User.init({
   },
   is_registered: {
     type: DataTypes.BOOLEAN,
-    allowNull: false,
     default: false,
   }
 }, {

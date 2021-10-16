@@ -7,7 +7,7 @@ import userRouter from './rest/UserRest.js';
 
 
 //set force to false if we want to persist the database
-await db.sequelize.sync({ force: false });
+await db.sequelize.sync({ force: true });
 
 
 try {

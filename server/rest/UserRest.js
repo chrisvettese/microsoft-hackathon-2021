@@ -40,18 +40,24 @@ userRouter.get('/', getAllBuilder(User))
 userRouter.post('/', async (req, res) => {
     const body = req.body;
     try {
-        assert(body.email_address, 'user has no emailAddress');
-        assert(body.oid, 'user has no emailAddress');
+        console.log(body);
+        assert(body.email_address, 'user has no email_address');
+        assert(body.oid, 'user has no oid');
+        assert(body.username, 'user has no username');
+        
     } catch (error) {
         res.status(400).send(error.message)
+        return;
     }
 
     try {
         const newUser = body;
         const result = await User.create(body);
         res.status(200).send(result);
+        return;
     } catch (error) {
         res.status(500).send(error.message)
+        return;
     }
 })
 
