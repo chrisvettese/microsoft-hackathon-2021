@@ -58,4 +58,6 @@ userRouter.post('/', async (req, res) => {
     }
 })
 
+userRouter.get("/provinces", getAllBuilder(Province))
+
 export default userRouter;
