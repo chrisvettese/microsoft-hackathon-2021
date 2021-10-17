@@ -1,42 +1,37 @@
 [
     {
         "name": "Electric bus",
-        "gas_consumption": 0,
+        "emissions": 0,
         "electricity_usage": 3.33 
     },
     {
         "name": "Gas bus",
-        "gas_consumption": 0.39,
+        "emissions": 0.897,
         "electricity_usage": 0 
     },
     {
         "name": "plane",
-        "gas_consumption": 2.39,
+        "emissions": 7.22,
         "electricity_usage": 0 
     },
     {
-        "name": "Gas bus",
-        "gas_consumption": 0.39,
-        "electricity_usage": 0 
-    }, 
-    {
         "name": "Regional Train (electric)",
-        "gas_consumption":0,
+        "emissions":0,
         "electricity_usage":3.86
     },
     {
         "name": "Regional Train (gas)",
-        "gas_consumption":0.25,
+        "emissions":0.58,
         "electricity_usage": 0
     },
     {
         "name": "Subway (electric)",
-        "gas_consumption":0,
+        "emissions":0,
         "electricity_usage":3.73
     },
     {
         "name": "Tram /streetcar/LRT",
-        "gas_consumption":0,
+        "emissions":0,
         "electricity_usage":3.06
     }
 ]

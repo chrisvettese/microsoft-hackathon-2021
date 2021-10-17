@@ -10,14 +10,14 @@ TransitMethod.init({
         type: DataTypes.STRING,
         allowNull: false
     },
-    gas_consumption: {
+    emissions: {
         type: DataTypes.INTEGER,
         allowNull: false,
         set(value) {
-            this.setDataValue('gas_consumption', Math.round(value * 100));
+            this.setDataValue('emissions', Math.round(value * 100));
         },
         get() {
-            return this.getDataValue('gas_consumption') / 100;
+            return this.getDataValue('emissions') / 100;
         }
     },
     electricity_usage: {

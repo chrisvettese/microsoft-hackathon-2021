@@ -31,7 +31,7 @@
 ```
 {
     oid: number
-    userName: string
+    username: string
     province: number
 }
 ```

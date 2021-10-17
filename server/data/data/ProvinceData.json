@@ -1,6 +1,54 @@
 [
     {
+        "name": "Alberta",
+        "emissions_per_watt": 0.79
+    },
+    {
+        "name": "Nunavut",
+        "emissions_per_watt": 0.75
+    },
+    {
+        "name": "Saskatchewan",
+        "emissions_per_watt": 0.66
+    },
+    {
+        "name": "Nova Scotia",
+        "emissions_per_watt": 0.6
+    },
+    {
+        "name": "Northwest Territories",
+        "emissions_per_watt": 0.39
+    },
+    {
+        "name": "New Brunswick",
+        "emissions_per_watt": 0.28
+    },
+    {
+        "name": "Yukon",
+        "emissions_per_watt": 0.041
+    },
+    {
         "name": "Ontario",
-        "emissions_per_watt": 2
+        "emissions_per_watt": 0.04
+    },
+    {
+        "name": "Newfoundland and Labrador",
+        "emissions_per_watt": 0.032
+    },
+    {
+        "name": "Prince Edward Island",
+        "emissions_per_watt": 0.02
+    },
+    {
+        "name": "British Columbia",
+        "emissions_per_watt": 0.013
+    },
+    {
+        "name": "Manitoba",
+        "emissions_per_watt": 0.0034
+    },
+    {
+        "name": "Quebec",
+        "emissions_per_watt": 0.0012
     }
 ]
