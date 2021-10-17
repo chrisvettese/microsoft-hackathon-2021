@@ -1,13 +1,9 @@
 import { Router } from "express";
 import * as express from "express"
-import path from 'path'
-import { fileURLToPath } from 'url';
-import { dirname } from 'path';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+import { getFilePath } from "../utils/utils.js";
 
 const router = Router();
-//router.use('/', express.static(path.join(__dirname, '../static/build')))
+
+router.use('/', express.static(getFilePath(import.meta.url, '../static/build'), ));
 
 export default router;
