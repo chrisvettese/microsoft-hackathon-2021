@@ -17,7 +17,7 @@ TransitMethod.init({
             this.setDataValue('gas_consumption', Math.round(value*100));
         },
         get() {
-            return value/100;
+            return this.getDataValue('gas_consumption')/100;
         }
     },
     electricity_usage: {
@@ -27,7 +27,7 @@ TransitMethod.init({
             this.setDataValue('electricity_usage', Math.round(value*100));
         },
         get() {
-            return this.getDataValue('electricity_usage', value/100);
+            return this.getDataValue('electricity_usage')/100;
         }
     }
 }, {
