@@ -6,7 +6,7 @@ const userRouter = Router();
 export function getAllBuilder(model) {
     return async (req, res) => {
         try {
-            const data = model.findAll();
+            const data = await model.findAll();
             res.status(200).send(data);
         } catch (error) {
             res.status(500).send(error.message);
