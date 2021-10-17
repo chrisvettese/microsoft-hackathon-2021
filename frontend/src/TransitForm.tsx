@@ -167,7 +167,7 @@ export default function TransitForm(props: TransitFormProps) {
               <Box sx={{px: '1rem'}}>
                 <TextField label='Name' value={form.name} helperText='For example, "Daily Commute"' variant='outlined'
                            onChange={event => changeName(event, form.key)} error={submitted && form.name === ''}/>
-                <FormControl sx={{marginLeft: '1rem'}}>
+                <FormControl sx={{marginLeft: '1rem', minWidth: 225}}>
                   <InputLabel error={submitted && form.transitMethod === ''}>Mode of Transportation</InputLabel>
                   <Select value={form.transitMethod === '' ? '' : form.transitMethod.id} label="Mode of Transportation"
                           onChange={event => changeTransit(event, form.key)}
@@ -180,8 +180,6 @@ export default function TransitForm(props: TransitFormProps) {
                       })
                     }
                   </Select>
-                  <FormHelperText error={submitted && form.transitMethod === ''}>This will help estimate your CO2
-                    emissions.</FormHelperText>
                 </FormControl>
               </Box>
               <Box sx={{px: '1rem'}}>
