@@ -61,4 +61,30 @@ userRouter.post('/', async (req, res) => {
     }
 })
 
+
+userRouter.patch("", async (req,res) => {
+    const {oid, username, province} = req.body;
+
+    try {
+        assert(oid, 'no oid')
+        assert(username, 'user has no userName');
+        assert(province, 'user has no province');
+    } catch (error) {
+        res.status(400).send(error.message)
+        return;
+    }
+
+    try{
+        User.update({username, province}, {
+            where:{
+                oid
+            }
+        });
+        res.status(200).send()
+        return;
+    } catch (error) {
+        res.status(500).send(error.message);
+    }
+    
+})
 export default userRouter;

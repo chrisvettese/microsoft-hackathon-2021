@@ -6,5 +6,9 @@ import { getAllBuilder } from "./UserRest.js";
 const transitRouter = Router();
 
 transitRouter.get("/methods", getAllBuilder(TransitMethod));
+transitRouter.post("/api/transit", (req, res) => {
+    const { oid, transit_id, gas_emissions, frequency, distance } = req.body
+    
+})
 
 export default transitRouter;

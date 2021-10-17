@@ -3,3 +3,5 @@ curl localhost:8080/user/1
 curl -X POST -H "Content-Type: application/json" \
     -d '{"oid": "2", "username": "jack", "email_address": "linuxize@example.com"}' \
     localhost:8080/api/user
+
+curl localhost:8080/api/user/provinces

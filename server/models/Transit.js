@@ -11,23 +11,23 @@ TransitMethod.init({
         allowNull: false
     },
     gas_consumption: {
-        type: DataTypes.INTEGER, 
+        type: DataTypes.INTEGER,
         allowNull: false,
         set(value) {
-            this.setDataValue('gas_consumption', Math.round(value*100));
+            this.setDataValue('gas_consumption', Math.round(value * 100));
         },
         get() {
-            return this.getDataValue('gas_consumption')/100;
+            return this.getDataValue('gas_consumption') / 100;
         }
     },
     electricity_usage: {
-        type: DataTypes.INTEGER, 
+        type: DataTypes.INTEGER,
         allowNull: false,
         set(value) {
-            this.setDataValue('electricity_usage', Math.round(value*100));
+            this.setDataValue('electricity_usage', Math.round(value * 100));
         },
         get() {
-            return this.getDataValue('electricity_usage')/100;
+            return this.getDataValue('electricity_usage') / 100;
         }
     }
 }, {
@@ -63,5 +63,5 @@ Transit.init({
 
 Transit.hasOne(Frequency);
 TransitMethod.hasMany(Transit);
-export {TransitMethod};
+export { TransitMethod };
 export default Transit;

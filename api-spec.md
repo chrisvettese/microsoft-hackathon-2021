@@ -32,6 +32,7 @@
 {
     oid: number
     userName: string
+    province: number
 }
 ```
 
