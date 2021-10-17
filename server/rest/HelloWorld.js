@@ -3,7 +3,6 @@ import * as express from "express"
 import { getFilePath } from "../utils/utils.js";
 import fs from 'fs'
 
-
 const router = Router();
 const frontendPath = getFilePath(import.meta.url, '../static/build');
 
@@ -13,9 +12,5 @@ if (fs.existsSync(frontendPath)) {
 } else {
     console.log("static frontend not found")
 }
-
-
-
-
 
 export default router;
