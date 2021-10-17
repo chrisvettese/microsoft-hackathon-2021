@@ -1,4 +1,14 @@
-import {MenuItem, Select, SelectChangeEvent, TextField, Typography} from "@mui/material";
+import {
+  Divider,
+  FormControl,
+  FormHelperText,
+  InputLabel,
+  MenuItem,
+  Select,
+  SelectChangeEvent,
+  TextField,
+  Typography
+} from "@mui/material";
 import React, {ChangeEvent, useEffect, useState} from "react";
 import TransitForm, {getNewTransit, Transit} from "./TransitForm";
 import getTransitMethods, {ServerTransitMethod} from "./requests/GetTransitMethods";
@@ -11,7 +21,7 @@ export default function Registration() {
   const [username, setUsername] = useState('');
 
   const [provinces, setProvinces] = useState<ServerProvince[]>([]);
-  const [province, setProvince] = useState('');
+  const [province, setProvince] = useState<string>('');
 
   const [transitForms, setTransitForms] = useState<Transit[]>([getNewTransit(0)]);
   const [transitMethods, setTransitMethods] = useState<ServerTransitMethod[]>();
@@ -42,20 +52,26 @@ export default function Registration() {
       {
         transitMethods && (
           <>
-            <TextField variant='outlined' value={username} onChange={handleUsernameChange} label='Username'/>
-            <Select
-              value={province}
-              label="Province/State"
-              onChange={handleProvinceChange}
-            >
-              {
-                provinces.map(province => {
-                  return (
-                    <MenuItem value={province.id}>{province.name}</MenuItem>
-                  )
-                })
-              }
-            </Select>
+            <TextField variant='outlined' value={username} helperText='This is how other users will see you.'
+                       onChange={handleUsernameChange} label='Username' sx={{minWidth: 225}}/>
+            <FormControl sx={{my: '2rem', minWidth: 225}}>
+              <InputLabel>Province/State</InputLabel>
+              <Select value={province} label="Province/State" onChange={handleProvinceChange}>
+                {
+                  provinces.map(province => {
+                    return (
+                      <MenuItem key={province.id} value={province.id}>{province.name}</MenuItem>
+                    )
+                  })
+                }
+              </Select>
+              <FormHelperText>This will help estimate your CO2 emissions.</FormHelperText>
+            </FormControl>
+
+            <Divider sx={{width: '100%'}}/>
+              <Typography variant='h4' sx={{fontWeight: 'bold'}}>Transportation</Typography>
+            <Divider sx={{width: '100%', marginBottom: '1rem'}}/>
+            <Typography sx={{width: '80%', textAlign: 'center'}}>{transportationText}</Typography>
             <TransitForm transitForms={transitForms} setTransitForms={setTransitForms}
                          transitMethods={transitMethods}/>
           </>
@@ -64,3 +80,5 @@ export default function Registration() {
     </>
   );
 }
+
+const transportationText = 'Our first category is transportation. The goal is to know every major form of transportation you use, so we can calculate your current greenhouse gas emissions. Whenever you switch modes of transportation (for example, switch from a gas car to public transit), you can update your transit methods, and your Eco Score will be calculated.'

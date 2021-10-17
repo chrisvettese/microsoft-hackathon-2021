@@ -1,16 +1,26 @@
 [
     {
-        "name": "Electric bus",
+        "name": "Car (gas)",
+        "emissions": 0,
+        "electricity_usage": 0
+    },
+    {
+        "name": "Car (electric)",
+        "emissions": 0,
+        "electricity_usage": 0
+    },
+    {
+        "name": "Bus (electric)",
         "emissions": 0,
         "electricity_usage": 3.33 
     },
     {
-        "name": "Gas bus",
+        "name": "Bus (gas)",
         "emissions": 0.897,
         "electricity_usage": 0 
     },
     {
-        "name": "plane",
+        "name": "Plane",
         "emissions": 7.22,
         "electricity_usage": 0 
     },
@@ -30,7 +40,12 @@
         "electricity_usage":3.73
     },
     {
-        "name": "Tram /streetcar/LRT",
+        "name": "Tram/Streetcar/LRT",
+        "emissions":0,
+        "electricity_usage":3.06
+    },
+    {
+        "name": "Bike/walking",
         "emissions":0,
         "electricity_usage":3.06
     }

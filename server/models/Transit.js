@@ -63,5 +63,5 @@ Transit.init({
 
 Transit.hasOne(Frequency);
 TransitMethod.hasMany(Transit);
-export { TransitMethod };
+export { TransitMethod, Frequency };
 export default Transit;
