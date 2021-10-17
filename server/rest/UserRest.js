@@ -1,4 +1,5 @@
 import { Router } from "express";
+import Province from "../models/Province.js";
 import User from "../models/UserModel.js";
 import assert from "../utils/dev.js";
 const userRouter = Router();
