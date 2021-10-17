@@ -4,6 +4,7 @@ import helloWorld from './rest/HelloWorld.js';
 import morgan from 'morgan'
 import cors from 'cors';
 import userRouter from './rest/UserRest.js';
+import transitRouter from './rest/Transits.js';
 
 //set force to false if we want to persist the database
 await db.sequelize.sync({ force: true });
@@ -17,14 +18,16 @@ try {
 
 const apiRoute = Router();
 apiRoute.use('/user', userRouter)
+apiRoute.use('/transit', transitRouter)
 
 //Create an app
 const app = express();
 app.use(cors({origin: 'http://localhost:3000'}))
 app.use(morgan('common'));
 app.use(express.json());
-app.use('/', helloWorld)
+app.use('/', helloWorld);
 app.use('/api', apiRoute);
+
 
 //Listen port
 const PORT = 8080;

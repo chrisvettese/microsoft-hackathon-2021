@@ -3,9 +3,9 @@ import User from "../models/UserModel.js";
 import assert from "../utils/dev.js";
 const userRouter = Router();
 
-function getAllBuilder(model) {
+export function getAllBuilder(model) {
     return async (req, res) => {
-        try{
+        try {
             const data = model.findAll();
             res.status(200).send(data);
         } catch (error) {
@@ -14,7 +14,7 @@ function getAllBuilder(model) {
     }
 }
 
-function getByIdBuilder(model){
+function getByIdBuilder(model) {
     return async (req, res) => {
         const id = req.params.id;
         if (id) {
@@ -42,7 +42,7 @@ userRouter.post('/', async (req, res) => {
     try {
         console.log(body);
         assert(body.email_address, 'user has no email_address');
-        assert(body.oid, 'user has no oid');        
+        assert(body.oid, 'user has no oid');
     } catch (error) {
         res.status(400).send(error.message)
         return;
