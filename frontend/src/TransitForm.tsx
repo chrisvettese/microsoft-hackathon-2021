@@ -1,5 +1,6 @@
 import React, {ChangeEvent} from "react";
 import {Box, Paper, TextField} from "@mui/material";
+import {ServerTransitMethod} from "./requests/GetTransitMethods";
 
 export interface Transit {
   transitMethod: number | '';
@@ -14,7 +15,7 @@ export interface Transit {
 interface TransitFormProps {
   transitForms: Transit[];
   setTransitForms: React.Dispatch<React.SetStateAction<Transit[]>>;
-  transitMethodNames: string[];
+  transitMethods: ServerTransitMethod[];
 }
 
 export default function TransitForm(props: TransitFormProps) {

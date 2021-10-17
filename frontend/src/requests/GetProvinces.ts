@@ -1,12 +1,13 @@
 import {SERVER_PATH} from "../Util";
 
-export interface ServerTransitMethod {
+export interface ServerProvince {
   id: number;
   name: string;
+  emissions_per_watt: number;
 }
 
-export default async function getTransitMethods(accessToken: string): Promise<ServerTransitMethod[]> {
-  const result = await fetch(`${SERVER_PATH}/transit/methods`, {
+export default async function getProvinces(accessToken: string): Promise<ServerProvince[]> {
+  const result = await fetch(`${SERVER_PATH}/user/provinces`, {
     headers: {
       'Accept': 'application/json',
       'Authentication': accessToken,

@@ -35,6 +35,8 @@ function getByIdBuilder(model) {
     }
 }
 
+userRouter.get("/provinces", getAllBuilder(Province));
+
 userRouter.get('/:id', getByIdBuilder(User));
 userRouter.get('/', getAllBuilder(User))
 
@@ -58,7 +60,5 @@ userRouter.post('/', async (req, res) => {
         return;
     }
 })
-
-userRouter.get("/provinces", getAllBuilder(Province))
 
 export default userRouter;
