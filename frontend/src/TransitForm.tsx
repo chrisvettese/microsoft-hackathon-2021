@@ -38,6 +38,10 @@ interface TransitFormProps {
   transitForms: Transit[];
   setTransitForms: React.Dispatch<React.SetStateAction<Transit[]>>;
   transitMethods: ServerTransitMethod[];
+  setUserError: React.Dispatch<React.SetStateAction<boolean>>;
+  setProvinceError: React.Dispatch<React.SetStateAction<boolean>>;
+  username: string;
+  province: string;
 }
 
 export default function TransitForm(props: TransitFormProps) {
@@ -55,7 +59,9 @@ export default function TransitForm(props: TransitFormProps) {
 
   function checkErrors() {
     const errorForms = formRef!.current!.querySelectorAll('.Mui-error');
-    if (errorForms.length > 0) {
+    if (errorForms.length > 0 || props.province.length === 0 || props.username.length === 0) {
+      props.setProvinceError(props.province.length === 0);
+      props.setUserError(props.username.length === 0);
       setError('Missing fields have been highlighted above. Please fill them out before submitting.')
     } else {
       setError('');

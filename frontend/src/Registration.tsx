@@ -23,6 +23,9 @@ export default function Registration() {
   const [provinces, setProvinces] = useState<ServerProvince[]>([]);
   const [province, setProvince] = useState<string>('');
 
+  const [userError, setUserError] = useState<boolean>(false);
+  const [provinceError, setProvinceError] = useState<boolean>(false);
+
   const [transitForms, setTransitForms] = useState<Transit[]>([getNewTransit(0)]);
   const [transitMethods, setTransitMethods] = useState<ServerTransitMethod[]>();
 
@@ -53,10 +56,11 @@ export default function Registration() {
         transitMethods && (
           <>
             <TextField variant='outlined' value={username} helperText='This is how other users will see you.'
-                       onChange={handleUsernameChange} label='Username' sx={{minWidth: 225}}/>
+                       onChange={handleUsernameChange} error={userError && username.length === 0} label='Username' sx={{minWidth: 225}}/>
             <FormControl sx={{my: '2rem', minWidth: 225}}>
-              <InputLabel>Province/State</InputLabel>
-              <Select value={province} label="Province/State" onChange={handleProvinceChange}>
+              <InputLabel error={provinceError && province.length === 0}>Province/State</InputLabel>
+              <Select value={province} error={provinceError && province.length === 0} label="Province/State"
+                      onChange={handleProvinceChange}>
                 {
                   provinces.map(province => {
                     return (
@@ -65,15 +69,16 @@ export default function Registration() {
                   })
                 }
               </Select>
-              <FormHelperText>This will help estimate your CO2 emissions.</FormHelperText>
+              <FormHelperText error={provinceError && province.length === 0}>This will help estimate your CO2
+                emissions.</FormHelperText>
             </FormControl>
-
             <Divider sx={{width: '100%'}}/>
-              <Typography variant='h4' sx={{fontWeight: 'bold'}}>Transportation</Typography>
+            <Typography variant='h4' sx={{fontWeight: 'bold'}}>Transportation</Typography>
             <Divider sx={{width: '100%', marginBottom: '1rem'}}/>
             <Typography sx={{width: '80%', textAlign: 'center'}}>{transportationText}</Typography>
-            <TransitForm transitForms={transitForms} setTransitForms={setTransitForms}
-                         transitMethods={transitMethods}/>
+            <TransitForm transitForms={transitForms} setTransitForms={setTransitForms} province={province}
+                         transitMethods={transitMethods} username={username} setProvinceError={setProvinceError}
+                         setUserError={setUserError}/>
           </>
         )
       }
