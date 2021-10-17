@@ -8,6 +8,6 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const router = Router();
-router.use('/', express.static(path.join(__dirname, '../static/build')))
+//router.use('/', express.static(path.join(__dirname, '../static/build')))
 
 export default router;

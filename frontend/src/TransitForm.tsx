@@ -18,8 +18,11 @@ interface TransitFormProps {
 }
 
 export default function TransitForm(props: TransitFormProps) {
-  const handleNameChange = (event: ChangeEvent<HTMLInputElement>) => {
+  function changeName(event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>, key: number) {
     const newTransitForms = [...props.transitForms];
+    const form = getFormByKey(newTransitForms, key)!;
+    form.name = event.target.value;
+    props.setTransitForms(newTransitForms);
   }
 
   return (
@@ -28,7 +31,7 @@ export default function TransitForm(props: TransitFormProps) {
         props.transitForms.map((form) => {
           return (
             <Paper key={form.key}>
-              <TextField onChange={handleNameChange}/>
+              <TextField variant='outlined' onChange={event => changeName(event, form.key)}/>
             </Paper>
           )
         })
@@ -47,4 +50,8 @@ export function getNewTransit(key: number): Transit {
     type: '',
     key: key
   }
+}
+
+function getFormByKey(forms: Transit[], key: number): Transit | undefined {
+  return forms.find(form => form.key === key);
 }

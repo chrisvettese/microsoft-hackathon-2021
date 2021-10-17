@@ -2,7 +2,7 @@ import {Box, Typography} from "@mui/material";
 import {useIsAuthenticated, useMsal} from "@azure/msal-react";
 import {useHistory, useLocation} from "react-router-dom";
 import {useEffect, useState} from "react";
-import {initializeUser} from "./azure/InitializeUser";
+import {initializeUser} from "./requests/InitializeUser";
 import {LocationState} from "./Util";
 import Registration from "./Registration";
 
