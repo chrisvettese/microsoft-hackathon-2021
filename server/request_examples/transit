@@ -1,1 +1,11 @@
 curl localhost:8080/api/transit/methods
+
+curl -X POST -H "Content-Type: application/json" \
+    -d '{"oid": "2", "transits": [{"distance": 2, "transit_method: 1, "name": "daily commute",
+            "frequency": {
+                "value": 2,
+                "per": "day"
+            }
+        }
+    ]}' \
+    localhost:8080/api/transit
