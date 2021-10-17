@@ -1,5 +1,5 @@
 import { Router } from "express";
-import * as express from "express"
+import express from "express"
 import { getFilePath } from "../utils/utils.js";
 import fs from 'fs'
 
