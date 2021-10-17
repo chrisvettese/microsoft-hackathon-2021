@@ -9,11 +9,13 @@ export default function Registration() {
   const location = useLocation<LocationState>();
   const [username, setUsername] = useState('');
   const [transitForms, setTransitForms] = useState<Transit[]>([getNewTransit(0)]);
+  const [transitNames, setTransitNames] = useState<string[]>([]);
 
   useEffect(() => {
-    const transitMethods = getTransitMethods(location.state.accessToken);
-    console.log(transitMethods);
-  }, []);
+    getTransitMethods(location.state.accessToken).then(transitMethods => {
+      console.log(transitMethods);
+    });
+  }, [location.state.accessToken]);
 
   const handleUsernameChange = (event: ChangeEvent<HTMLInputElement>) => {
     setUsername(event.target.value);
@@ -23,7 +25,11 @@ export default function Registration() {
     <>
       <Typography variant='h6' sx={{my: '1rem'}}>Please complete the registration process:</Typography>
       <TextField variant='outlined' value={username} onChange={handleUsernameChange} label='Username'/>
-      <TransitForm transitForms={transitForms} setTransitForms={setTransitForms} transitMethodNames={}/>
+      {
+        transitNames.length > 0 && (
+          <TransitForm transitForms={transitForms} setTransitForms={setTransitForms} transitMethodNames={transitNames}/>
+        )
+      }
     </>
   );
 }
