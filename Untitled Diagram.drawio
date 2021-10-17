@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-10-17T02:48:17.747Z" agent="5.0 (X11)" etag="l8IwoZByk_HMIzEijN_I" version="15.5.2" type="github">
+<mxfile host="app.diagrams.net" modified="2021-10-17T03:16:23.301Z" agent="5.0 (X11)" etag="HwETIwB1rxYmsualpWOP" version="15.5.2" type="github">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
     <mxGraphModel dx="1865" dy="572" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -189,11 +189,11 @@
         <mxCell id="hwa-c6ww7SQmqR4LavUR-16" value="units here are per km" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="-10" y="461" width="130" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="hwa-c6ww7SQmqR4LavUR-17" value="kwh/km" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="-70" y="390" width="60" height="20" as="geometry" />
+        <mxCell id="hwa-c6ww7SQmqR4LavUR-17" value="kwh/100 km" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="-80" y="390" width="80" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="hwa-c6ww7SQmqR4LavUR-18" value="kg CO2 / km" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="-90" y="420" width="80" height="20" as="geometry" />
+        <mxCell id="hwa-c6ww7SQmqR4LavUR-18" value="kg CO2 / 100 km" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="-105" y="420" width="110" height="20" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
