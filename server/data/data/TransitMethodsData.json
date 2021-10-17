@@ -1,7 +1,42 @@
 [
     {
-        "name": "Ontario",
-        "gas_emissions": 20,
-        "electricity_usage": 2
+        "name": "Electric bus",
+        "gas_consumption": 0,
+        "electricity_usage": 3.33 
+    },
+    {
+        "name": "Gas bus",
+        "gas_consumption": 0.39,
+        "electricity_usage": 0 
+    },
+    {
+        "name": "plane",
+        "gas_consumption": 2.39,
+        "electricity_usage": 0 
+    },
+    {
+        "name": "Gas bus",
+        "gas_consumption": 0.39,
+        "electricity_usage": 0 
+    }, 
+    {
+        "name": "Regional Train (electric)",
+        "gas_consumption":0,
+        "electricity_usage":3.86
+    },
+    {
+        "name": "Regional Train (gas)",
+        "gas_consumption":0.25,
+        "electricity_usage": 0
+    },
+    {
+        "name": "Subway (electric)",
+        "gas_consumption":0,
+        "electricity_usage":3.73
+    },
+    {
+        "name": "Tram /streetcar/LRT",
+        "gas_consumption":0,
+        "electricity_usage":3.06
     }
 ]

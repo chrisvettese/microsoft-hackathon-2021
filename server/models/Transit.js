@@ -4,18 +4,31 @@ import db from './model.js'
 
 class TransitMethod extends Model { };
 
+
 TransitMethod.init({
     name: {
         type: DataTypes.STRING,
         allowNull: false
     },
-    gas_emissions: {
-        type: DataTypes.INTEGER, // not sure of units
-        allowNull: false
+    gas_consumption: {
+        type: DataTypes.INTEGER, 
+        allowNull: false,
+        set(value) {
+            this.setDataValue('gas_consumption', Math.round(value*100));
+        },
+        get() {
+            return value/100;
+        }
     },
     electricity_usage: {
-        type: DataTypes.INTEGER, // not sure of units
-        allowNull: false
+        type: DataTypes.INTEGER, 
+        allowNull: false,
+        set(value) {
+            this.setDataValue('electricity_usage', Math.round(value*100));
+        },
+        get() {
+            return this.getDataValue('electricity_usage', value/100);
+        }
     }
 }, {
     sequelize: db.sequelize, // We need to pass the connection instance

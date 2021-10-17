@@ -49,7 +49,6 @@ userRouter.post('/', async (req, res) => {
     }
 
     try {
-        const newUser = body;
         const result = await User.create(body);
         res.status(201).send(result);
         return;
