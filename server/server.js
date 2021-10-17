@@ -5,9 +5,12 @@ import morgan from 'morgan'
 import cors from 'cors';
 import userRouter from './rest/UserRest.js';
 import transitRouter from './rest/Transits.js';
+import setUpData from './data/setUpData.js';
 
 //set force to false if we want to persist the database
 await db.sequelize.sync({ force: true });
+
+setUpData();
 
 try {
   await db.sequelize.authenticate();

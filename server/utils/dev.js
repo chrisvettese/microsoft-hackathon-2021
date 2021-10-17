@@ -7,4 +7,7 @@ function assert(value, error_message) {
     }
 }
 
+
+
+
 export default assert;
