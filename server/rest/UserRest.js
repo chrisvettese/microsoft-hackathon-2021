@@ -67,7 +67,7 @@ userRouter.patch("", async (req,res) => {
 
     try {
         assert(oid, 'no oid')
-        assert(username, 'user has no userName');
+        assert(username, 'user has no username');
         assert(province, 'user has no province');
     } catch (error) {
         res.status(400).send(error.message)
@@ -75,7 +75,7 @@ userRouter.patch("", async (req,res) => {
     }
 
     try{
-        User.update({username, province}, {
+        await User.update({username, province}, {
             where:{
                 oid
             }

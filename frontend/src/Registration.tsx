@@ -78,7 +78,7 @@ export default function Registration() {
             <Typography sx={{width: '80%', textAlign: 'center'}}>{transportationText}</Typography>
             <TransitForm transitForms={transitForms} setTransitForms={setTransitForms} province={province}
                          transitMethods={transitMethods} username={username} setProvinceError={setProvinceError}
-                         setUserError={setUserError}/>
+                         setUserError={setUserError} provinces={provinces} accessToken={location.state.accessToken}/>
           </>
         )
       }

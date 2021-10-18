@@ -14,7 +14,7 @@ function checkValues(arr, res) {
         return true;
     } catch (error) {
         res.send(400).message(error.message);
-        return false
+        return false;
     }
 
 }

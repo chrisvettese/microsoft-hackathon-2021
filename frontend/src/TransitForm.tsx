@@ -13,8 +13,11 @@ import {
 import {ServerTransitMethod} from "./requests/GetTransitMethods";
 import CloseIcon from '@mui/icons-material/Close';
 import AddIcon from '@mui/icons-material/Add';
+import registerUser from "./requests/RegisterUser";
+import {ServerProvince} from "./requests/GetProvinces";
+import {useMsal} from "@azure/msal-react";
 
-interface Type {
+export interface Type {
   batterySize: number | '';
   range: number | '';
   fuelConsumption: number | '';
@@ -42,6 +45,8 @@ interface TransitFormProps {
   setProvinceError: React.Dispatch<React.SetStateAction<boolean>>;
   username: string;
   province: string;
+  provinces: ServerProvince[];
+  accessToken: string;
 }
 
 export default function TransitForm(props: TransitFormProps) {
@@ -51,13 +56,17 @@ export default function TransitForm(props: TransitFormProps) {
   const [submitted, setSubmitted] = useState<boolean>(false);
   const [error, setError] = useState<string>('');
 
+  const {accounts} = useMsal();
+  const account = accounts[0];
+
   useEffect(() => {
     if (submitted) {
-      checkErrors();
+      checkErrors().then(() => {
+      });
     }
   }, [submitted])
 
-  function checkErrors() {
+  async function checkErrors() {
     const errorForms = formRef!.current!.querySelectorAll('.Mui-error');
     if (errorForms.length > 0 || props.province.length === 0 || props.username.length === 0) {
       props.setProvinceError(props.province.length === 0);
@@ -65,7 +74,10 @@ export default function TransitForm(props: TransitFormProps) {
       setError('Missing fields have been highlighted above. Please fill them out before submitting.')
     } else {
       setError('');
-      //TODO POST data
+      const tokenClaims = account.idTokenClaims as {
+        oid: string;
+      }
+      await registerUser(tokenClaims.oid, props.username, props.province, props.transitForms, props.provinces, props.accessToken);
     }
   }
 

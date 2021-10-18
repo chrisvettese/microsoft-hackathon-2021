@@ -49,10 +49,11 @@
     transit_id,
     gas_emissions,
     frequency {
-        integer,
+        value: integer,
         per: Enum
     },
-    distance
+    distance,
+    type: json
 
 }
 ```
